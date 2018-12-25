@@ -2,19 +2,16 @@ package com.frankdeveloper.notasu.modelos
 
 import io.realm.RealmObject
 import io.realm.annotations.PrimaryKey
+import io.realm.annotations.RealmClass
 
-class MateriaModelo : RealmObject{
+@RealmClass
+open class MateriaModelo : RealmObject(){
 
     @PrimaryKey
-    var id: Int ?= null
+    var id: Long = 0
     private var nombre: String ?= null
     var imagen: String ?= null
 
-    constructor()
 
-    constructor(nombre: String?, imagen: String?) : super() {
-        this.nombre = nombre
-        this.imagen = imagen
-        this.id = 0
-    }
+
 }

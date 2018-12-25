@@ -8,9 +8,6 @@ import io.realm.RealmObject
 import java.util.concurrent.atomic.AtomicInteger
 import io.realm.RealmConfiguration
 
-
-
-
 class MiAplicacion : Application() {
 
     var notaID: AtomicInteger = AtomicInteger()
@@ -19,7 +16,7 @@ class MiAplicacion : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        Realm.init(applicationContext)
+        Realm.init(this)
         configurarRealm()
         val realm = Realm.getDefaultInstance()
         notaID = obtenerPorTabla(realm, NotaModelo::class.java)
@@ -30,7 +27,7 @@ class MiAplicacion : Application() {
 
     private fun configurarRealm() {
         val config = RealmConfiguration.Builder()
-            .deleteRealmIfMigrationNeeded()
+            .name("DB_NotasU")
             .build()
         Realm.setDefaultConfiguration(config)
     }
