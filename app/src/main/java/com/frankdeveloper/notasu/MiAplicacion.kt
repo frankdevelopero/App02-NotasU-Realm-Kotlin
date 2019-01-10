@@ -28,6 +28,7 @@ class MiAplicacion : Application() {
     private fun configurarRealm() {
         val config = RealmConfiguration.Builder()
             .name("DB_NotasU")
+            .deleteRealmIfMigrationNeeded()
             .build()
         Realm.setDefaultConfiguration(config)
     }

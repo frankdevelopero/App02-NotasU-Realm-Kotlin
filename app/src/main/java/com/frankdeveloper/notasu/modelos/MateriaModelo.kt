@@ -5,13 +5,17 @@ import io.realm.annotations.PrimaryKey
 import io.realm.annotations.RealmClass
 
 @RealmClass
-open class MateriaModelo : RealmObject(){
+open class MateriaModelo : RealmObject{
 
     @PrimaryKey
     var id: Long = 0
     private var nombre: String ?= null
-    var imagen: String ?= null
+    var sigla: String ?= null
 
+    constructor()
 
-
+    constructor(nombre: String?, sigla: String?) : super() {
+        this.nombre = nombre
+        this.sigla = sigla
+    }
 }

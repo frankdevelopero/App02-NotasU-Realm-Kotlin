@@ -6,11 +6,17 @@ import io.realm.annotations.RealmClass
 import java.util.*
 
 @RealmClass
-open class NotaModelo : RealmObject() {
+open class NotaModelo : RealmObject {
 
     @PrimaryKey
     var id:Long = 0
     var nota: String ?= null
     var fecha: Date ?= null
 
+    constructor()
+
+    constructor(nota: String?) : super() {
+        this.nota = nota
+        fecha = Date()
+    }
 }
